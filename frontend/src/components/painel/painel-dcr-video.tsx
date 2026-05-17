@@ -1,5 +1,5 @@
 import { ExternalLink, Play } from "lucide-react"
-import { govPanelClassName } from "@/components/gov-panel"
+import { govPanelClassName } from "@/components/gov-panel-styles"
 import { cn } from "@/lib/utils"
 
 export function PainelDcrVideo({

@@ -1,6 +1,6 @@
 import { BookOpen, ExternalLink } from "lucide-react"
 import type { CapacitacaoPreparacaoLink } from "@/config/capacitacao"
-import { govPanelClassName } from "@/components/gov-panel"
+import { govPanelClassName } from "@/components/gov-panel-styles"
 import { cn } from "@/lib/utils"
 
 export function CapacitacaoPreparacaoLinkCard({

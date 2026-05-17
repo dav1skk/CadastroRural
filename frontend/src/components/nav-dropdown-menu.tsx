@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react"
 import { useCallback, useEffect, useId, useRef, useState } from "react"
 import { createPortal } from "react-dom"
 import { Link } from "react-router-dom"
-import { govNavLinkClassName } from "@/components/gov-panel"
+import { govNavLinkClassName } from "@/components/gov-panel-styles"
 import type { NavDropdownChild, NavDropdownItem } from "@/config/navigation"
 import { cn } from "@/lib/utils"
 

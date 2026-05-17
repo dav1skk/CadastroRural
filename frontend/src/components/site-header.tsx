@@ -3,8 +3,8 @@ import {
   GovPanel,
   GovPanelHeader,
   GovPanelTitle,
-  govNavLinkClassName,
 } from "@/components/gov-panel"
+import { govNavLinkClassName } from "@/components/gov-panel-styles"
 import { HeaderSearch } from "@/components/header-search"
 import { NavDropdownMenu } from "@/components/nav-dropdown-menu"
 import {

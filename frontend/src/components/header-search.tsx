@@ -72,6 +72,12 @@ export function HeaderSearch({ className }: { className?: string }) {
 
   const results = searchSiteIndex(query)
   const showResults = open && query.trim().length > 0
+  const highlightedIndex =
+    showResults && results.length > 0
+      ? activeIndex >= results.length
+        ? results.length - 1
+        : activeIndex
+      : -1
 
   const close = useCallback(() => {
     setOpen(false)
@@ -97,11 +103,6 @@ export function HeaderSearch({ className }: { className?: string }) {
     },
     [close, navigate],
   )
-
-  useEffect(() => {
-    if (!showResults) setActiveIndex(-1)
-    else if (activeIndex >= results.length) setActiveIndex(results.length - 1)
-  }, [showResults, results.length, activeIndex])
 
   useEffect(() => {
     function onPointerDown(event: MouseEvent) {
@@ -132,9 +133,9 @@ export function HeaderSearch({ className }: { className?: string }) {
       setActiveIndex((index) =>
         index <= 0 ? results.length - 1 : index - 1,
       )
-    } else if (event.key === "Enter" && activeIndex >= 0) {
+    } else if (event.key === "Enter" && highlightedIndex >= 0) {
       event.preventDefault()
-      selectResult(results[activeIndex])
+      selectResult(results[highlightedIndex])
     }
   }
 
@@ -205,7 +206,9 @@ export function HeaderSearch({ className }: { className?: string }) {
             aria-controls={showResults ? listboxId : undefined}
             aria-autocomplete="list"
             aria-activedescendant={
-              activeIndex >= 0 ? `${listboxId}-option-${activeIndex}` : undefined
+              highlightedIndex >= 0
+                ? `${listboxId}-option-${highlightedIndex}`
+                : undefined
             }
             className={inputClassName}
           />
@@ -253,7 +256,7 @@ export function HeaderSearch({ className }: { className?: string }) {
                 >
                   <SearchResultItem
                     result={result}
-                    active={index === activeIndex}
+                    active={index === highlightedIndex}
                     onSelect={() => {
                       setQuery("")
                       close()

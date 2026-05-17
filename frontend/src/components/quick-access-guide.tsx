@@ -5,8 +5,8 @@ import {
   GovPanelHeader,
   GovPanelSectionTitle,
   GovPanelTitle,
-  govNavLinkClassName,
 } from "@/components/gov-panel"
+import { govNavLinkClassName } from "@/components/gov-panel-styles"
 import {
   QUICK_ACCESS_SECTIONS,
   type QuickAccessLink,

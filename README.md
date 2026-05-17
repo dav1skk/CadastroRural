@@ -52,6 +52,15 @@ Automacao/
 
 ### Frontend (desenvolvimento)
 
+Na raiz do repositório (recomendado):
+
+```bash
+npm install --prefix frontend
+npm run dev
+```
+
+Ou diretamente em `frontend/`:
+
 ```bash
 cd frontend
 npm install
