@@ -1,14 +1,16 @@
-import type { ReactNode } from "react"
+﻿import type { ReactNode } from "react"
 import { ExternalLink, FileText } from "lucide-react"
 import { Link } from "react-router-dom"
 import {
   GovPanel,
   GovPanelHeader,
-  GovPanelSectionTitle,
   GovPanelTitle,
-  govPanelClassName,
 } from "@/components/gov-panel"
-import type { CapacitacaoApoioLink } from "@/config/capacitacao"
+import { CapacitacaoPreparacaoLinkCard } from "@/components/capacitacao-preparacao-link-card"
+import type {
+  CapacitacaoApoioLink,
+  CapacitacaoPreparacaoLink,
+} from "@/config/capacitacao"
 import { siteContainerClassName } from "@/lib/layout"
 import { cn } from "@/lib/utils"
 
@@ -299,59 +301,16 @@ export function CapacitacaoInfoPanel({
   )
 }
 
-export function CapacitacaoMockupPanel({
-  title,
-  children,
-  className,
-  ariaLabel,
+export function CapacitacaoPreparacaoAside({
+  links,
 }: {
-  title?: string
-  children: ReactNode
-  className?: string
-  ariaLabel: string
+  links: readonly CapacitacaoPreparacaoLink[]
 }) {
   return (
-    <div
-      className={cn(
-        govPanelClassName,
-        "mx-auto max-w-md bg-card p-6 sm:p-8",
-        className,
-      )}
-      role="img"
-      aria-label={ariaLabel}
-    >
-      {title ? (
-        <p className="text-center text-base font-semibold text-foreground">
-          {title}
-        </p>
-      ) : null}
-      {children}
-    </div>
-  )
-}
-
-export function CapacitacaoStepsPanel({
-  sectionTitle,
-  steps,
-}: {
-  sectionTitle: string
-  steps: readonly { id: string; title: string; body: string }[]
-}) {
-  return (
-    <GovPanel>
-      <GovPanelHeader>
-        <GovPanelTitle>{sectionTitle}</GovPanelTitle>
-      </GovPanelHeader>
-      <div className="divide-y divide-border">
-        {steps.map((step) => (
-          <div key={step.id} className="space-y-2">
-            <GovPanelSectionTitle>{step.title}</GovPanelSectionTitle>
-            <p className={cn(capacitacaoBodyClassName, "px-4 pb-4")}>
-              {step.body}
-            </p>
-          </div>
-        ))}
-      </div>
-    </GovPanel>
+    <>
+      {links.map((link) => (
+        <CapacitacaoPreparacaoLinkCard key={link.id} link={link} />
+      ))}
+    </>
   )
 }

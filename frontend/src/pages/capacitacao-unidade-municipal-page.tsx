@@ -3,11 +3,11 @@ import {
   CapacitacaoInfoPanel,
   CapacitacaoModuleBlock,
   CapacitacaoPageLayout,
+  CapacitacaoPreparacaoAside,
   CapacitacaoSection,
   CapacitacaoStepBlock,
   CapacitacaoTwoColumnLayout,
 } from "@/components/capacitacao/capacitacao-layout"
-import { CapacitacaoPreparacaoLinkCard } from "@/components/capacitacao-preparacao-link-card"
 import {
   CAPACITACAO_UMC_INSCRICOES,
   CAPACITACAO_UMC_INSTRUCTION,
@@ -93,13 +93,7 @@ export function CapacitacaoUnidadeMunicipalPage() {
             </CapacitacaoSection>
           </>
         }
-        aside={
-          <>
-            {CAPACITACAO_UMC_PREPARACAO_LINKS.map((link) => (
-              <CapacitacaoPreparacaoLinkCard key={link.id} link={link} />
-            ))}
-          </>
-        }
+        aside={<CapacitacaoPreparacaoAside links={CAPACITACAO_UMC_PREPARACAO_LINKS} />}
       />
     </CapacitacaoPageLayout>
   )

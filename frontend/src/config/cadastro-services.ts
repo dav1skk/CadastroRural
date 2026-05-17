@@ -1,9 +1,4 @@
-import type {
-  CollapsibleSection,
-  ContentLink,
-} from "@/config/content-links"
-
-export type CadastroServiceLink = ContentLink
+import type { CollapsibleSection } from "@/config/content-links"
 
 export type CadastroFeaturedCard = {
   title: string

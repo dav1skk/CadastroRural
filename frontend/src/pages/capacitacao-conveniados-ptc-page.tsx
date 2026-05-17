@@ -3,10 +3,10 @@ import {
   CapacitacaoBodyText,
   CapacitacaoExternalLink,
   CapacitacaoPageLayout,
+  CapacitacaoPreparacaoAside,
   CapacitacaoSection,
   CapacitacaoTwoColumnLayout,
 } from "@/components/capacitacao/capacitacao-layout"
-import { CapacitacaoPreparacaoLinkCard } from "@/components/capacitacao-preparacao-link-card"
 import {
   CAPACITACAO_PTC_APOIO_LINKS,
   CAPACITACAO_PTC_INTRO_PARAGRAPHS,
@@ -47,13 +47,7 @@ export function CapacitacaoConveniadosPtcPage() {
             />
           </>
         }
-        aside={
-          <>
-            {CAPACITACAO_PTC_PREPARACAO_LINKS.map((link) => (
-              <CapacitacaoPreparacaoLinkCard key={link.id} link={link} />
-            ))}
-          </>
-        }
+        aside={<CapacitacaoPreparacaoAside links={CAPACITACAO_PTC_PREPARACAO_LINKS} />}
       />
     </CapacitacaoPageLayout>
   )

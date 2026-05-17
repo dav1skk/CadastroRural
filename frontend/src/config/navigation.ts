@@ -21,9 +21,6 @@ export type NavDropdownItem = {
 
 export type NavEntry = NavLinkItem | NavDropdownItem
 
-/** @deprecated Use NavLinkItem */
-export type NavItem = NavLinkItem
-
 export const SITE_TITLE = "Cadastro Rural"
 
 export function pageLabelForPath(pathname: string): string | undefined {

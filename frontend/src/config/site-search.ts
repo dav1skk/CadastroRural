@@ -218,7 +218,7 @@ function buildIndex(): SiteSearchResult[] {
   }))
 }
 
-export const SITE_SEARCH_INDEX = buildIndex()
+const SITE_SEARCH_INDEX = buildIndex()
 
 export function searchSiteIndex(
   query: string,
